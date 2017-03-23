@@ -19,10 +19,14 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE
  *
+ * @flow
  */
+
 'use strict';
 
-const {AppRegistry} = require('react-native');
-const setup = require('./js/setup');
-
-AppRegistry.registerComponent('snowball', setup);
+module.exports = {
+  testMenuEnabled: true,
+  serverURL: 'http://localhost:8080',
+  version: 323,
+  fontFamily: undefined,
+};

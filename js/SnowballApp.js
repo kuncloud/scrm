@@ -1,4 +1,7 @@
 /**
+ * Created by yuyanq on 2017/3/21.
+ */
+/**
  * Copyright 2016 Facebook, Inc.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to
@@ -19,10 +22,50 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE
  *
+ * @providesModule F8App
+ * @flow
  */
+
 'use strict';
 
-const {AppRegistry} = require('react-native');
-const setup = require('./js/setup');
+var React = require('React');
+var AppState = require('AppState');
+var StyleSheet = require('StyleSheet');
+var View = require('View');
 
-AppRegistry.registerComponent('snowball', setup);
+var { version } = require('./env.js');
+
+var SnowballApp = React.createClass({
+    componentDidMount: function() {
+        AppState.addEventListener('change', this.handleAppStateChange);
+
+    },
+
+    componentWillUnmount: function() {
+        AppState.removeEventListener('change', this.handleAppStateChange);
+    },
+
+    handleAppStateChange: function(appState) {
+        if (appState === 'active') {
+        }
+    },
+
+    render: function() {
+        return (
+            <View style={styles.container}>
+
+            </View>
+        );
+    },
+
+});
+
+var styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
+});
+
+
+
+module.exports = SnowballApp;
